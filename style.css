@@ -34,7 +34,7 @@ body { background-color: var(--bg); color: var(--text); font-family: var(--font-
 .portal-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; justify-content: center; align-items: center; }
 .portal-mask { width: 100vw; height: 100vh; position: relative; display: flex; justify-content: center; align-items: center; clip-path: circle(0% at 50% 50%); will-change: clip-path; }
 .portal-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.2); }
-.portal-text { position: absolute; z-index: 2; color: white; text-align: center; width: 100%; transition: opacity 0.5s ease, transform 0.5s ease; }
+.portal-text { position: absolute; z-index: 2; color: rgb(0, 0, 0); text-align: center; width: 100%; transition: opacity 0.5s ease, transform 0.5s ease; }
 .step-1 { opacity: 1; transform: translateY(0); }
 .step-1 h2 { font-size: 8vw; font-weight: 600; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 .step-2 { opacity: 0; transform: translateY(50px); }
