@@ -140,101 +140,84 @@ body { background-color: var(--bg); color: var(--text); font-family: var(--font-
 }
 
 /* ========================================= */
-/* RESPONSIVE MOBILE (MAX 768px)       */
+/* RESPONSIVE MOBILE (CORRECTIF)             */
 /* ========================================= */
 @media (max-width: 768px) {
-    /* RESET */
+    
+    /* 1. RESET & HERO */
     * { cursor: auto !important; }
     .cursor-blob { display: none; }
-    
-    /* HERO */
     .hero { padding: 15vh 5%; }
     .breathing-text { font-size: 15vw; }
-    .hero-bg { opacity: 0.3; }
     .fade-in-up { font-size: 1.1rem; padding: 0 1rem; }
+    .hero-bg { opacity: 0.3; }
 
-    /* PORTAL */
+    /* 2. PORTAIL & MANIFESTE */
     .portal-container { height: 200vh; }
     .portal-text { font-size: 10vw; }
     .step-2 p { font-size: 10vw; padding: 0 1rem; }
-
-    /* MANIFESTO */
     .manifesto-section { padding: 10vh 5vw; }
-    .manifesto-text p { font-size: 7vw; }
+    .manifesto-text p { font-size: 7vw; margin-bottom: 1rem; }
 
-    /* --- CORRECTION GALERIE (Nos Piliers) --- */
-    .horizontal-section { 
-        height: auto; /* On annule la hauteur de scroll */
-    }
-    .sticky-wrapper { 
-        position: static; /* On annule le sticky */
-        height: auto; 
-        display: block; 
-        padding-bottom: 10vh; 
-    }
-    .horizontal-intro { 
-        position: static; 
-        margin: 5vh 5vw 5vh; 
-        opacity: 1; 
-        text-align: left; 
-    }
+    /* 3. FIX GALERIE (NOS PILIERS) -> Liste Verticale */
+    .horizontal-section { height: auto; position: static; }
+    .sticky-wrapper { position: static; height: auto; display: block; padding-bottom: 10vh; }
+    .horizontal-intro { position: static; margin: 5vh 5vw 5vh; opacity: 1; text-align: left; }
     .horizontal-track { 
         display: flex; 
-        flex-direction: column; /* Pile verticale */
+        flex-direction: column; /* Empile les images */
         gap: 5vh; 
         padding: 0 5vw; 
-        transform: none !important; /* Annule le scroll JS */
+        transform: none !important; /* Annule l'effet scroll horizontal */
         width: 100%;
     }
-    .gallery-item { 
-        width: 100%; /* Prend toute la largeur */
-        margin-bottom: 0;
-    }
+    .gallery-item { width: 100%; margin-bottom: 0; }
     .gallery-img-box { 
-        width: 100%;
-        height: 50vh; /* Hauteur fixe confortable */
+        width: 100%; 
+        height: 50vh; /* Hauteur fixe pour bien voir l'image */
         margin-bottom: 1.5rem; 
-        overflow: hidden;
-        border-radius: 4px;
     }
-    .gallery-img-box img { 
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Remplit sans déformer */
-        transform: none !important; /* Annule le zoom/parallax */
-        filter: grayscale(0%); /* Image en couleur directe */
-    }
-    /* ---------------------------------------- */
+    .gallery-img-box img { transform: none !important; scale: 1 !important; }
 
-    /* ARCHITECTE (About) */
+    /* 4. FIX ARCHITECTE (L'image était écrasée) */
     .about-section { padding: 10vh 5vw; }
-    .about-grid { flex-direction: column-reverse; gap: 2rem; }
+    .about-grid { 
+        flex-direction: column-reverse; /* Texte au dessus, image en dessous */
+        gap: 3rem; 
+    }
     .about-text { width: 100%; }
+    .about-text p { font-size: 1.3rem; margin-bottom: 1rem; }
     .about-img { 
         width: 100%; 
-        height: 50vh; /* Même correction que la galerie */
-        object-fit: cover; 
+        height: 50vh; /* On force la hauteur pour voir la photo */
+        min-height: 300px;
     }
     .about-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        object-position: center top; /* Centre sur le visage */
         transform: none !important;
     }
 
-    /* STREAM & FAQ */
+    /* 5. FIX PRIX (Pour voir les 3 offres) */
+    .pricing-overlay {
+        display: block; /* Enlève le flex centré qui coupe le contenu */
+        overflow-y: auto; /* Force le scroll vertical */
+        padding: 100px 0;
+    }
+    .pricing-container { height: auto; padding-bottom: 50px; }
+    .pricing-grid { flex-direction: column; gap: 2rem; }
+    .price-card { width: 90%; padding: 2rem; margin: 0 auto; }
+    .p-header .price { font-size: 3.5rem; }
+    .close-pricing { top: 1rem; right: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem; background: rgba(0,0,0,0.8); }
+
+    /* AUTRES */
     .stream-reviews-section { gap: 2vh; }
     .quote { font-size: 8vw; width: 80vw; white-space: normal; }
-    .stream-item { padding: 0 5vw; flex-direction: column; align-items: flex-start; margin-bottom: 3rem; }
+    .stream-item { padding: 0 5vw; flex-direction: column; align-items: flex-start; }
     .faq-section { padding: 10vh 5vw; }
     .faq-question h3 { font-size: 1.2rem; }
-
-    /* FOOTER & PRICING */
     #main-content { margin-bottom: 0; box-shadow: none; }
     .footer-reveal { position: relative; height: auto; padding: 10vh 0; z-index: 2; }
     .footer-title { font-size: 15vw; }
-    
-    .pricing-grid { flex-direction: column; }
-    .price-card { width: 100%; padding: 2rem; margin-bottom: 2rem; }
-    .p-header .price { font-size: 3.5rem; }
+    .contact-form-section { padding: 10vh 5vw 15vh; }
+    .contact-header h2 { font-size: 10vw; }
 }
